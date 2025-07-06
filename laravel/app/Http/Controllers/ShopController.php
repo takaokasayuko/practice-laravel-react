@@ -12,7 +12,7 @@ class ShopController extends Controller
     public function index()
     {
         $shops = Shop::with('reviews')->get();
-        dd($shops);
+
         $newReviews = Review::with('shop', 'user')
             ->orderBy('created_at', 'desc')
             ->take(5)
